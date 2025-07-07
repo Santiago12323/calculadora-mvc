@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #4d8dec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .botones {
+            margin-top: 15px;
+        }
+
+        .botones button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .botones button:hover {
+            transform: scale(1.05);
+        }
+
+        .botones button:nth-child(1) { background-color: #4CAF50; color: white; }
+        .botones button:nth-child(2) { background-color: #2196F3; color: white; }
+        .botones button:nth-child(3) { background-color: #f39c12; color: white; }
+        .botones button:nth-child(4) { background-color: #e74c3c; color: white; }
+        .botones button:nth-child(5) { background-color: #bdc3c7; }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Calculadora</h1>
+    <form th:action="@{/calcular}" method="post" th:object="${operacion}">
+        <input type="number" step="any" th:field="*{numero1}" placeholder="Número 1" required />
+        <input type="number" step="any" th:field="*{numero2}" placeholder="Número 2" required />
+
+        <div class="botones">
+            <button type="submit" name="operacion" value="sumar">+</button>
+            <button type="submit" name="operacion" value="restar">−</button>
+            <button type="submit" name="operacion" value="multiplicar">×</button>
+            <button type="submit" name="operacion" value="dividir">÷</button>
+            <button type="submit" name="operacion" value="ac">AC</button>
+        </div>
+
+        <div class="resultado">
+            <span th:text="${operacion.resultado}">0</span>
+        </div>
+    </form>
+</div>
+</body>
+</html>
