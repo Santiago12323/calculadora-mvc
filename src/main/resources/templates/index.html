@@ -4,69 +4,122 @@
     <meta charset="UTF-8">
     <title>Calculadora</title>
     <style>
+        /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #4d8dec;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2980b9, #8e44ad);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-        }
-
-        .card {
-            background-color: #fff;
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            color: #fff;
             text-align: center;
         }
 
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
+        /* Card Container */
+        .card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        input[type="number"] {
-            width: 80%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .botones {
-            margin-top: 15px;
-        }
-
-        .botones button {
-            width: 50px;
-            height: 50px;
-            margin: 5px;
-            font-size: 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.2s ease;
-        }
-
-        .botones button:hover {
+        .card:hover {
             transform: scale(1.05);
         }
 
-        .botones button:nth-child(1) { background-color: #4CAF50; color: white; }
-        .botones button:nth-child(2) { background-color: #2196F3; color: white; }
-        .botones button:nth-child(3) { background-color: #f39c12; color: white; }
-        .botones button:nth-child(4) { background-color: #e74c3c; color: white; }
-        .botones button:nth-child(5) { background-color: #bdc3c7; }
-
-        .resultado {
-            margin-top: 20px;
-            font-size: 22px;
-            font-weight: bold;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Input Fields */
+        input[type="number"] {
+            width: 85%;
+            padding: 15px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #3498db;
+        }
+
+        /* Buttons Container */
+        .botones {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        /* Button Styles */
+        .botones button {
+            font-size: 1.6rem;
+            padding: 15px;
+            border-radius: 12px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .botones button:hover {
+            background-color: #2980b9;
+            transform: scale(1.1);
+        }
+
+        .botones button:active {
+            background-color: #1f6a8c;
+        }
+
+        .botones button:nth-child(5) {
+            background-color: #f39c12;
+        }
+
+        .botones button:nth-child(5):hover {
+            background-color: #e67e22;
+        }
+
+        /* Resultado Section */
+        .resultado {
+            margin-top: 25px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .card {
+                width: 280px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .botones button {
+                font-size: 1.4rem;
+            }
+
+            .resultado {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
